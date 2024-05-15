@@ -1,5 +1,26 @@
 ---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
 
+const pageTitle = 'About';
+
+const identity = {
+    firstName: 'Antonio',
+    country: 'Angola',
+    occupation: 'Escritor',
+    hobbies: ['escribir', 'leer', 'programar']
+};
+
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Git', 'Markdown'];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = '#0274cd';
+const fontWeight = 'bold';
+const textCase = 'uppercase';
 ---
 
 <html lang="en">
@@ -8,16 +29,51 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
+		<title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+                color: #826498;
+                font-size: 4rem;
+            }
+
+            .skill {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+        </style>
 	</head>
 	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+        <Header />
 
-		<h1>About</h1>
+		<h1>{pageTitle}</h1>
         <h2>... a new blog in Astro</h2>
 
-        <p>Sitio en construcción</p>
+        <p>Datos sobre mí:</p>
+
+        <ul>
+            <li>Me llamo {identity.firstName}.</li>
+            <li>Vivo en {identity.country} y trabajo como {identity.occupation}.</li>
+            {
+                identity.hobbies.length >= 2 && (
+                    <li>Dos de mis hobbies son: {identity.hobbies[0]} y {identity.hobbies[1]}.</li>
+                )
+            }
+        </ul>
+
+        <p>Algunas de mis habilidades son:</p>
+        <ul>
+            {
+                skills.map((skill) => (
+                    <li class="skill">{skill}</li>
+                ))
+            }
+        </ul>
+
+        <p>Estado emocional: {happy ? '😃' : '😢'}</p>
+        {finished && <p>¡He terminado!</p>}
+        {goal === 3 ? <p>Mi objetivo es terminar en 3 días</p> : <p>Mi objetivo es terminar en {goal} días</p>}
+
+        <Footer />
 	</body>
 </html>
