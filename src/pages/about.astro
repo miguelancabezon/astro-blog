@@ -17,7 +17,7 @@ const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Git', 'Markdow
 
 const happy = true;
 const finished = true;
-const goal = 3;
+const goal = 2;
 
 const skillColor = '#0274cd';
 const fontWeight = 'bold';
@@ -50,5 +50,5 @@ const textCase = 'uppercase';
 
     <p>Estado emocional: {happy ? '😃' : '😢'}</p>
     {finished && <p>¡He terminado!</p>}
-    {goal === 3 ? <p>Mi objetivo es terminar en 3 días</p> : <p>Mi objetivo es terminar en {goal} días</p>}
+    {goal === 3 ? <p>Mi objetivo es terminar en 3 días</p> : <p>Al final terminé en {goal} días</p>}
 </BaseLayout>
