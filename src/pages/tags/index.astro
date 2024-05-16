@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const allPosts = await Astro.glob('../posts/*.md');
+const tags = [...new Set(allPosts.flatMap((post) => post.frontmatter.tags))];
+const pageTitle = 'Índice de etiquetas';
+---
+
+<BaseLayout id={pageTitle} title={pageTitle}>
+    <div class="tag-list">
+        {tags.map(tag => (
+            <p class="tag">
+                <a href={`/tags/${tag}`}>{tag}</a>
+            </p>
+        ))}
+    </div>
+</BaseLayout>

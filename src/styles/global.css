@@ -100,4 +100,39 @@ html {
         text-transform: var(--text-uppercase);
     }
   }
+
+  /* Tags */
+
+  .tag-list {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .tag {
+    background-color: #e3bbff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    
+    a {
+      color: var(--skill-color);
+      text-decoration: none;
+    }
+  }
+
+  .tag:hover {
+    background-color: #d6aaff;
+  }
   
+  /* DARK */
+  
+  html.dark {
+    background-color: #0d0950;
+    color: #fff;
+  }
+  
+  .dark .nav-links a {
+    color: #fff;
+  }
