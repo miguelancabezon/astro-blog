@@ -1,3 +1,9 @@
+:root {
+  --skill-color: #0274cd;
+  --font-bold: 'bold';
+  --text-uppercase: uppercase;
+}
+
 html {
     background-color: #f1f5f9;
     font-family: sans-serif;
@@ -80,3 +86,18 @@ html {
       display: none;
     }
   }
+
+  /* About Page */
+  #About {
+    h1 {
+      color: #826498;
+      font-size: 4rem;
+    }
+
+    .skill {
+        color: var(--skill-color);
+        font-weight: var(--font-bold);
+        text-transform: var(--text-uppercase);
+    }
+  }
+  
